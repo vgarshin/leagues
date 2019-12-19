@@ -11,7 +11,6 @@ from time import sleep
 from bs4 import BeautifulSoup
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 YaBrowser/19.6.1.153 Yowser/2.5 Safari/537.36'
-PROXIES = {'https': 'https://37.203.246.48:42911'}
 MIN_TIME_SLEEP = 1
 MAX_TIME_SLEEP = 3
 MAX_COUNTS = 5
@@ -54,11 +53,10 @@ def translit(text):
     tr = {ord(a):ord(b) for a, b in zip(*symbols)}
     return text.translate(tr)
 def main():
-    #python lgscrap_pfl.py https://37.203.246.48:42911 C:/data/leagues/_data
-    proxies = str(sys.argv[1]) #https://37.203.246.48:42911
+    proxies = str(sys.argv[1])
     print('got proxies: ', proxies)
     PROXIES = {'https': proxies}
-    data_path = sys.argv[2] #C:/data/leagues/_data
+    data_path = sys.argv[2]
     print('data path: ', data_path)
     
     CACHE_PATH = '{}/{}/'.format(data_path, 'pfl')
@@ -463,4 +461,4 @@ def main():
         print('done: ', file_name)
 
 if __name__ == '__main__':
-    main()        
+    main()
