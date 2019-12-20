@@ -459,6 +459,7 @@ def main():
         with open(file_name, 'w') as file:
             json.dump(player, file)
         print('done: ', file_name)
+    print('all done')
 
 if __name__ == '__main__':
     main()
